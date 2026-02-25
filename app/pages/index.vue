@@ -3,13 +3,6 @@ import siteConfig from '../../site-config.json'
 
 const testModeParam: string = siteConfig.lemonSqueezyTestMode ? '?test=true' : ''
 const checkoutUrl: string = `https://${siteConfig.lemonSqueezyStoreId}.lemonsqueezy.com/buy/${siteConfig.lemonSqueezyProductId}${testModeParam}`
-
-useHead({
-  title: siteConfig.title,
-  meta: [
-    { name: 'description', content: siteConfig.metaDescription }
-  ]
-})
 </script>
 
 <template>
@@ -36,7 +29,7 @@ useHead({
         </a>
 
         <p class="text-sm text-gray-400">
-          100% refundable &middot; No commitment
+          {{ siteConfig.reassurance }}
         </p>
       </div>
     </main>

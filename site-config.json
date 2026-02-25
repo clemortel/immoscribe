@@ -3,8 +3,11 @@
   "pitch": "A short and compelling description of the value your product delivers.",
   "price": "$9",
   "ctaLabel": "Pre-order now",
+  "reassurance": "100% refundable · No commitment",
+  "ogImage": "/og.png",
   "lemonSqueezyProductId": "YOUR_LEMONSQUEEZY_PRODUCT_ID",
   "lemonSqueezyStoreId": "YOUR_LEMONSQUEEZY_STORE_ID",
   "lemonSqueezyTestMode": true,
+  "webhookUrl": "",
   "metaDescription": "Pre-order your product today at a special launch price."
 }
