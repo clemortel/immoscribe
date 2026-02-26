@@ -9,5 +9,7 @@
   "lemonSqueezyStoreId": "YOUR_LEMONSQUEEZY_STORE_ID",
   "lemonSqueezyTestMode": true,
   "webhookUrl": "",
-  "metaDescription": "Pre-order your product today at a special launch price."
+  "metaDescription": "Pre-order your product today at a special launch price.",
+  "posthogKey": "",
+  "posthogHost": "https://us.i.posthog.com"
 }

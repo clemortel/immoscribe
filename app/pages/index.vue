@@ -1,8 +1,18 @@
 <script setup lang="ts">
 import siteConfig from '../../site-config.json'
 
+const { $posthog } = useNuxtApp()
+
 const testModeParam: string = siteConfig.lemonSqueezyTestMode ? '?test=true' : ''
 const checkoutUrl: string = `https://${siteConfig.lemonSqueezyStoreId}.lemonsqueezy.com/buy/${siteConfig.lemonSqueezyProductId}${testModeParam}`
+
+function trackCta() {
+  $posthog()?.capture('cta_click', { label: siteConfig.ctaLabel, url: checkoutUrl })
+}
+
+function trackCheckout() {
+  $posthog()?.capture('checkout_start', { product: siteConfig.lemonSqueezyProductId })
+}
 </script>
 
 <template>
@@ -24,6 +34,7 @@ const checkoutUrl: string = `https://${siteConfig.lemonSqueezyStoreId}.lemonsque
         <a
           :href="checkoutUrl"
           class="lemonsqueezy-button inline-block bg-black text-white font-medium text-lg px-8 py-4 rounded-xl hover:bg-gray-800 transition-colors"
+          @click="trackCta(); trackCheckout()"
         >
           {{ siteConfig.ctaLabel }}
         </a>
