@@ -10,6 +10,6 @@
   "lemonSqueezyTestMode": true,
   "webhookUrl": "",
   "metaDescription": "Pre-order your product today at a special launch price.",
-  "posthogKey": "",
+  "posthogKey": "phx_YK8dHsGmhlMnKJTdViIlCFEPwxIcKOT51K9hQg7UMrJgktT",
   "posthogHost": "https://us.i.posthog.com"
 }
