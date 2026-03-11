@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ImmoScribe - Descriptions Immobilières par IA</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0d59f2",
+                        "background-light": "#f5f6f8",
+                        "background-dark": "#101622",
+                        "neutral-dark": "#182234",
+                        "border-dark": "#314368",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+  <!-- INJECT-START -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once unregister opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phx_YK8dHsGmhlMnKJTdViIlCFEPwxIcKOT51K9hQg7UMrJgktT', {api_host: 'https://us.i.posthog.com', person_profiles: 'identified_only'});
+  </script>
+  <!-- INJECT-END -->
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-border-dark/50 bg-background-dark/80 backdrop-blur-md px-6 md:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">domain_add</span>
+<h2 class="text-white text-xl font-black tracking-tight">ImmoScribe</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#features">Fonctionnalités</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#pricing">Tarifs</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#testimonials">Témoignages</a>
+<a class="text-slate-300 hover:text-primary text-sm font-medium transition-colors" href="#faq">FAQ</a>
+</nav>
+<div class="flex gap-3">
+<button class="hidden sm:flex h-10 items-center justify-center rounded-lg px-4 bg-neutral-dark text-white text-sm font-bold border border-border-dark hover:bg-neutral-dark/80 transition-all">
+                        Connexion
+                    </button>
+<button class="flex h-10 items-center justify-center rounded-lg px-5 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+                        Essai Gratuit
+                    </button>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative px-6 py-16 md:py-24 max-w-7xl mx-auto overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-primary text-xs font-bold uppercase tracking-wider border border-primary/20">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+                        Nouvelle version 2.0 disponible
+                    </div>
+<div class="flex flex-col gap-4">
+<h1 class="text-white text-5xl md:text-6xl font-black leading-tight tracking-tight">
+                            Vendez plus vite avec des <span class="text-primary">descriptions</span> par IA
+                        </h1>
+<p class="text-slate-400 text-lg md:text-xl font-normal leading-relaxed max-w-lg">
+                            Générez des annonces captivantes, optimisées pour le SEO et prêtes en quelques secondes grâce à notre IA spécialisée en immobilier.
+                        </p>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex h-14 items-center justify-center rounded-xl px-8 bg-primary text-white text-lg font-bold shadow-xl shadow-primary/30 hover:bg-primary/90 transition-all">
+                            Commencer l'essai gratuit
+                        </button>
+<button class="flex h-14 items-center justify-center rounded-xl px-8 bg-neutral-dark text-white text-lg font-bold border border-border-dark hover:bg-neutral-dark/80 transition-all">
+                            Voir la démo
+                        </button>
+</div>
+<div class="flex items-center gap-4 text-slate-500 text-sm">
+<div class="flex -space-x-2">
+<img alt="User 1" class="h-8 w-8 rounded-full border-2 border-background-dark bg-slate-800" data-alt="Close up portrait of a smiling professional man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuIJXz36PpDgG5HxbHgQ-aBZiSiGHth7gYwv2FGAC-H1684Fq1duxR_5gjZ3syK6t0VJecxFQI64stfzIjkcupAP8r7UpG01vn3CUiLCRk8FfTA3W0sWjQ6xEGXB2jajdhbXLjxdSFqFKL6XNpaOIGx-81K3d2q4Dl36SsfguZ0_HPh2Itl_JePDw0GHqOWyo8gnoKvp52NtRiU8IsQzvgBeDrB0ddrryolZg8VKUS2LV1QqTEqWVhO6bQayefciX9BCUwpGJM3wo"/>
+<img alt="User 2" class="h-8 w-8 rounded-full border-2 border-background-dark bg-slate-800" data-alt="Close up portrait of a smiling professional woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUPk1B1pYeJB4P-85oLjbpjKtoeGv9v-if4he4hw5SlSbinew1yz9qeoc9LvLP_HvhI2MhQ2suuITqMENtv2J7q-SJBYjAo_UfeL3dtLwGWopALD2fWyOMeAx3Kula_Vw5uwRgHsxampHjQ_tCH2U1IvMFxdHvQoufCRWwDZDz1SIzNagEZT-gCM-_4ccohySlBGsz8MzRKmYsmk6M2NnoMATVNSjuzdVaGgf-nbFSdp_UEGiX9v-Ku0hjfdWOq_ZtwGsPH3CNvo8"/>
+<img alt="User 3" class="h-8 w-8 rounded-full border-2 border-background-dark bg-slate-800" data-alt="Close up portrait of a smiling young real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXHLTsKTG5EdjRhPKpWcE0HxpMEWBVIPgcB10Ry_rUTryLQ8UPl6IW6P7ebd4fTN0jVXA8ON-anjpse2R1WZGDAc-1M5GhrFzv81p1_i2sKu6DpR3l3iEai5XNasAkRLdQCAie7Q_WBI4xxA7SHwmFnYJ3GpU0DAYjvaMLjGjnlYPR6Ji9S-VR_J_X1M9Yy379T8ZPYDa0XOTKgP1mGElDW22c9FtVhIjjyXYgMuGcI0aC9dD1jIikru1SCUhmUvFYe_riBBRWuiI"/>
+</div>
+<span>Rejoint par +500 agents immobiliers</span>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 blur-3xl rounded-full"></div>
+<div class="relative rounded-2xl border border-border-dark bg-neutral-dark/50 p-4 shadow-2xl backdrop-blur-sm overflow-hidden">
+<div class="bg-background-dark rounded-xl border border-border-dark p-6 min-h-[400px]">
+<div class="flex items-center justify-between mb-8">
+<div class="flex gap-2">
+<div class="h-3 w-3 rounded-full bg-red-500/50"></div>
+<div class="h-3 w-3 rounded-full bg-yellow-500/50"></div>
+<div class="h-3 w-3 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-xs text-slate-500 font-mono tracking-tighter">IMMOSCRIBE-GPT-4</div>
+</div>
+<div class="space-y-4">
+<div class="flex items-start gap-3">
+<div class="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-white text-xs">AI</div>
+<div class="bg-primary/10 rounded-2xl rounded-tl-none p-3 text-slate-200 text-sm border border-primary/20">
+                                        Analyse des caractéristiques terminée. Voici votre description optimisée :
+                                    </div>
+</div>
+<div class="pl-11 space-y-3">
+<div class="h-4 bg-slate-700/50 rounded w-full"></div>
+<div class="h-4 bg-slate-700/50 rounded w-5/6"></div>
+<div class="h-4 bg-slate-700/50 rounded w-4/6"></div>
+</div>
+<div class="rounded-xl border border-dashed border-border-dark p-4 mt-6">
+<p class="text-primary text-xs font-bold mb-2 uppercase">Points forts détectés</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-2 py-1 bg-green-500/10 text-green-400 text-[10px] rounded border border-green-500/20">Luminosité Exceptionnelle</span>
+<span class="px-2 py-1 bg-blue-500/10 text-blue-400 text-[10px] rounded border border-blue-500/20">Quartier Recherché</span>
+<span class="px-2 py-1 bg-purple-500/10 text-purple-400 text-[10px] rounded border border-purple-500/20">Rénovation Haut de Gamme</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Grid -->
+<section class="px-6 py-20 bg-neutral-dark/30" id="features">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+<h2 class="text-white text-3xl md:text-4xl font-black tracking-tight">Pourquoi choisir ImmoScribe ?</h2>
+<p class="text-slate-400 text-lg max-w-2xl">L'intelligence artificielle au service de votre réussite immobilière pour transformer chaque mandat en vente.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group p-8 rounded-2xl border border-border-dark bg-background-dark hover:border-primary/50 transition-all">
+<div class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-3">Rapidité Inégalée</h3>
+<p class="text-slate-400 leading-relaxed">Créez des descriptions complètes et professionnelles en moins de 30 secondes chrono.</p>
+</div>
+<div class="group p-8 rounded-2xl border border-border-dark bg-background-dark hover:border-primary/50 transition-all">
+<div class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">search_check</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-3">Optimisation SEO</h3>
+<p class="text-slate-400 leading-relaxed">Remontez naturellement dans les résultats de recherche sur les principaux portails immobiliers.</p>
+</div>
+<div class="group p-8 rounded-2xl border border-border-dark bg-background-dark hover:border-primary/50 transition-all">
+<div class="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">favorite</span>
+</div>
+<h3 class="text-white text-xl font-bold mb-3">Engagement Émotionnel</h3>
+<p class="text-slate-400 leading-relaxed">Utilisez le storytelling pour déclencher le coup de cœur immédiat chez vos acheteurs potentiels.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="px-6 py-20 max-w-7xl mx-auto" id="pricing">
+<div class="flex flex-col items-center text-center gap-4 mb-16">
+<h2 class="text-white text-3xl md:text-4xl font-black tracking-tight">Des tarifs adaptés à vos besoins</h2>
+<p class="text-slate-400 text-lg">Commencez gratuitement et évoluez selon votre volume d'annonces.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Starter -->
+<div class="flex flex-col rounded-2xl border border-border-dark bg-neutral-dark/40 p-8 hover:bg-neutral-dark/60 transition-all">
+<div class="mb-8">
+<h3 class="text-white text-xl font-bold mb-2">Starter</h3>
+<p class="text-slate-400 text-sm mb-6">Pour les agents indépendants débutants.</p>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-white">29€</span>
+<span class="text-slate-400">/mois</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> 10 descriptions / mois
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Support email 48h
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Export standard (PDF/Doc)
+                        </li>
+</ul>
+<button class="w-full h-12 rounded-xl border border-border-dark text-white font-bold hover:bg-border-dark transition-colors">Choisir Starter</button>
+</div>
+<!-- Pro -->
+<div class="flex flex-col rounded-2xl border-2 border-primary bg-background-dark p-8 relative shadow-2xl shadow-primary/10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] font-black uppercase tracking-widest py-1 px-4 rounded-full">Plus Populaire</div>
+<div class="mb-8">
+<h3 class="text-white text-xl font-bold mb-2">Pro</h3>
+<p class="text-slate-400 text-sm mb-6">L'outil ultime pour les agences actives.</p>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black text-white">79€</span>
+<span class="text-slate-400">/mois</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Descriptions illimitées
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Optimisation SEO avancée
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> IA personnalisée (ton &amp; style)
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Support prioritaire 24h
+                        </li>
+</ul>
+<button class="w-full h-12 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all">Démarrer l'essai gratuit</button>
+</div>
+<!-- Enterprise -->
+<div class="flex flex-col rounded-2xl border border-border-dark bg-neutral-dark/40 p-8 hover:bg-neutral-dark/60 transition-all">
+<div class="mb-8">
+<h3 class="text-white text-xl font-bold mb-2">Enterprise</h3>
+<p class="text-slate-400 text-sm mb-6">Solution sur mesure pour réseaux immobiliers.</p>
+<div class="flex items-baseline gap-1">
+<span class="text-3xl font-black text-white">Sur devis</span>
+</div>
+</div>
+<ul class="space-y-4 mb-8 flex-1">
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Accès API complet
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Marque blanche intégrée
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Gestion d'équipe multi-comptes
+                        </li>
+<li class="flex items-center gap-3 text-sm text-slate-300">
+<span class="material-symbols-outlined text-primary text-xl">check_circle</span> Account Manager dédié
+                        </li>
+</ul>
+<button class="w-full h-12 rounded-xl border border-border-dark text-white font-bold hover:bg-border-dark transition-colors">Contacter l'équipe</button>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="px-6 py-20 bg-neutral-dark/20 overflow-hidden" id="testimonials">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-white text-center text-3xl font-bold mb-16 tracking-tight">Ce que disent nos utilisateurs</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-2xl bg-background-dark border border-border-dark flex flex-col gap-6">
+<div class="flex gap-1 text-yellow-500">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-300 italic">"ImmoScribe a divisé par 4 le temps que je passais à rédiger mes annonces. La qualité est bluffante, mes clients adorent."</p>
+<div class="flex items-center gap-4 mt-auto">
+<img alt="Marc" class="h-12 w-12 rounded-full" data-alt="Close up portrait of a male real estate manager" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxBjjZbiJtpYQML899oyO_fuQgWENYhSTBDIrU-Htq5TnXDWMO0FZ0y1ohUlXMMsediWUbeNgdLK5eSa35PkRZoDab_egUGyv0DkDD0d0V_UbVn8Dsdt7yEs_cmu5CjYf9Bu-JYVOKH_9t6Zy13-Qs9zVvDCDRNAcCr5nreKhSPTnuwc5x3-FL7zW7b47OIstqP8QQg3S4PTI9Vjd1lvB7KSL9JIfnwykPbU-R4HpN8zK_srLC3CztkwGs0qf0S8d9bYtzllIvT9o"/>
+<div>
+<p class="text-white font-bold text-sm">Marc D.</p>
+<p class="text-slate-500 text-xs">Directeur Agence ERA</p>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-2xl bg-background-dark border border-border-dark flex flex-col gap-6">
+<div class="flex gap-1 text-yellow-500">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-300 italic">"L'optimisation SEO est réelle. Je vois une nette augmentation des contacts sur mes annonces Leboncoin et SeLoger."</p>
+<div class="flex items-center gap-4 mt-auto">
+<img alt="Julie" class="h-12 w-12 rounded-full" data-alt="Close up portrait of a female real estate agent" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrTNR1FBgDMPfWO-RM3Qy9bGu8uWHHRPQ0Ct5AYISVKrhak7wSwFGuMXkzVVAXdSSf0jwDobE7YP5YDcMrFcyIBvwH69AoWIZSMOfxGLNwJrsfgFzAjvF3WgfTjK0cZvYFntYft1aoB9UjNEUpuq60a7VuSPSVABwAqqVV5tBNgvFEQN7_ugGHwvNgrOCRIF9irgd3yVHyoOOpb21w9OuXuPRgWN8Pj0k4u0mtZezo-3po8YhEhDW823gp2HpfYG4dtqCqrzv8mJM"/>
+<div>
+<p class="text-white font-bold text-sm">Julie L.</p>
+<p class="text-slate-500 text-xs">Agent Indépendant IAD</p>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-2xl bg-background-dark border border-border-dark flex flex-col gap-6">
+<div class="flex gap-1 text-yellow-500">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+<p class="text-slate-300 italic">"L'interface est super intuitive. Je n'ai plus l'angoisse de la page blanche devant une nouvelle villa d'exception."</p>
+<div class="flex items-center gap-4 mt-auto">
+<img alt="Thomas" class="h-12 w-12 rounded-full" data-alt="Close up portrait of a male professional broker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY-yrX9cUinAJbfaY1EQ0jv7hBv7JjPRQgAQUkE1ZurlKkXuMthPlPI-y6QpDVIvPp7jJllMpfBcii06t_oIw8i4Upcb6razWjL0bCCpAjd7g1C3reILXISEcaJPa6auKa0HuefVv9nkrRRegamUB71qbxOqOIR364n-h60p8AiyNDbbnA9h6-bos1jVAiyRpgyMEoOADnqsTTEcb2RcRZLGfOPpM1U82dd7I4kYE5hw081Or39qpaf12ZONXmtRVBRoU4urLpvec"/>
+<div>
+<p class="text-white font-bold text-sm">Thomas R.</p>
+<p class="text-slate-500 text-xs">Century 21 France</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="px-6 py-20 max-w-3xl mx-auto" id="faq">
+<h2 class="text-white text-center text-3xl font-bold mb-12 tracking-tight">Questions Fréquentes</h2>
+<div class="space-y-4">
+<div class="rounded-xl border border-border-dark bg-neutral-dark/40 overflow-hidden">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-dark/60 transition-colors">
+<span class="text-white font-semibold">L'IA connaît-elle les spécificités du marché français ?</span>
+<span class="material-symbols-outlined text-slate-500">expand_more</span>
+</button>
+<div class="px-6 pb-6 text-slate-400 text-sm">
+                        Oui, ImmoScribe est spécifiquement entraîné sur des milliers d'annonces immobilières françaises, respectant les normes (Loi Carrez, DPE, etc.) et le vocabulaire local.
+                    </div>
+</div>
+<div class="rounded-xl border border-border-dark bg-neutral-dark/40 overflow-hidden">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-dark/60 transition-colors">
+<span class="text-white font-semibold">Puis-je exporter mes descriptions vers mon logiciel métier ?</span>
+<span class="material-symbols-outlined text-slate-500">expand_more</span>
+</button>
+</div>
+<div class="rounded-xl border border-border-dark bg-neutral-dark/40 overflow-hidden">
+<button class="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-dark/60 transition-colors">
+<span class="text-white font-semibold">Y a-t-il un engagement sur les forfaits ?</span>
+<span class="material-symbols-outlined text-slate-500">expand_more</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-6 py-20">
+<div class="max-w-5xl mx-auto rounded-3xl bg-primary p-12 text-center relative overflow-hidden shadow-2xl shadow-primary/40">
+<div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
+<div class="relative z-10 flex flex-col items-center gap-8">
+<h2 class="text-white text-4xl md:text-5xl font-black tracking-tight">Prêt à transformer vos mandats ?</h2>
+<p class="text-white/80 text-xl max-w-xl">Rejoignez les meilleurs agents et commencez à générer des descriptions d'exception dès aujourd'hui.</p>
+<div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+<button class="h-14 px-10 bg-white text-primary rounded-xl font-black text-lg hover:scale-105 transition-all shadow-xl">Commencer l'essai gratuit</button>
+<button class="h-14 px-10 bg-primary-dark/20 border-2 border-white/30 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all">Parler à un expert</button>
+</div>
+<p class="text-white/60 text-xs">Pas de carte bancaire requise. 14 jours d'essai gratuit.</p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="px-6 py-12 border-t border-border-dark bg-background-dark">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="flex flex-col gap-6 max-w-xs">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-3xl font-bold">domain_add</span>
+<h2 class="text-white text-xl font-black tracking-tight">ImmoScribe</h2>
+</div>
+<p class="text-slate-500 text-sm leading-relaxed">La plateforme d'IA n°1 pour les professionnels de l'immobilier en France. Créée par des agents, pour des agents.</p>
+<div class="flex gap-4">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-12">
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold text-sm uppercase tracking-widest">Produit</h4>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Fonctionnalités</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Tarifs</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">API &amp; Devs</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold text-sm uppercase tracking-widest">Compagnie</h4>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">À propos</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Blog</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Carrières</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="text-white font-bold text-sm uppercase tracking-widest">Légal</h4>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Confidentialité</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">CGV / CGU</a>
+<a class="text-slate-500 hover:text-primary text-sm transition-colors" href="#">Mentions Légales</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-border-dark flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-600 text-xs">© 2024 ImmoScribe SAS. Tous droits réservés.</p>
+<div class="flex gap-6">
+<span class="text-slate-600 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">shield</span> Sécurisé par TLS 1.3</span>
+<span class="text-slate-600 text-xs flex items-center gap-1"><span class="material-symbols-outlined text-[10px]">cloud_done</span> Hébergé en France</span>
+</div>
+</div>
+</footer>
+</div>
+<!-- INJECT-START -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var patterns = [
+      /\bcommenc/,  /\bessay/,   /\bdemarr/,    /\bacheter/,
+      /\bcommander/, /\bobtenir/, /\bs.inscrire/, /\bacces/,
+      /\bget\s*(started|access|it|early)/, /\bbuy\s*now/,
+      /\bstart\s*(now|generating|free|today)/, /\bsign\s*up/,
+      /\bjoin\s*(now|waitlist)/, /\border\s*now/, /\btry\s*(now|free|it)/,
+      /\bpurchase/, /\bcheckout/, /\blifetime\s*access/,
+      /\bpre.order/, /\breserver/, /\bsouscrire/, /\bprofiter/
+    ];
+    function normalize(s) {
+      return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\s+/g, ' ').trim();
+    }
+    function isInsideNavOrFooter(el) {
+      var p = el.parentElement;
+      while (p) {
+        var tag = p.tagName.toLowerCase();
+        if (tag === 'nav' || tag === 'footer' || tag === 'header') return true;
+        var role = (p.getAttribute('role') || '').toLowerCase();
+        if (role === 'navigation' || role === 'contentinfo') return true;
+        p = p.parentElement;
+      }
+      return false;
+    }
+    document.querySelectorAll('button, a[href="#"], a[href="javascript:void(0)"], a[href=""]').forEach(function(el) {
+      var raw = el.textContent.trim();
+      if (raw.length < 3 || raw.length > 60) return;
+      if (isInsideNavOrFooter(el)) return;
+      var t = normalize(raw);
+      var match = patterns.some(function(re) { return re.test(t); });
+      if (match) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.location.href = "https://buy.stripe.com/00w3cveE501f9ew4ZM3wQ0c";
+        });
+      }
+    });
+  });
+</script>
+<!-- INJECT-END -->
+</body></html>

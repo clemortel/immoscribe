@@ -1,2 +1,12 @@
+# Static serving — bypass Nuxt build for Stitch landing page
+[phases.setup]
+nixPkgs = ["python3"]
+
 [phases.install]
-cmds = ["npm install"]
+cmds = []
+
+[phases.build]
+cmds = []
+
+[start]
+cmd = "python3 -m http.server 3000 --directory public"
